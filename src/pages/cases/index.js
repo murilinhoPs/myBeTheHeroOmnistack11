@@ -1,10 +1,19 @@
 import React from "react";
-import { View} from "react-native";
+import { View, Text } from "react-native";
 
+import styles from "./styles";
+import CasesList from "./components/cases_lists";
+import Header from "../../components/header";
 
 export default function Cases() {
   return (
-    <View>
+    <View style={styles.container}>
+      <Header textOrIcon={true} />
+      <Text style={styles.title}>Bem-vindo!</Text>
+      <Text style={styles.titleDescription}>
+        Esolha um dos posts abaixo e salve o dia de algúem!
+      </Text>
+      <CasesList />
     </View>
   );
 }
