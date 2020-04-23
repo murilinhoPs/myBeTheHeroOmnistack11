@@ -4,7 +4,7 @@ import { Divider } from "react-native-elements";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-import { cardContext } from "../../../../services/card_context";
+import { cardContext } from "../../../../global/card_context";
 import styles from "./styles";
 
 export default function CasesCards(props) {

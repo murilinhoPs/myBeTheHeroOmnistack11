@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Linking } from "react-native";
 import * as MailComposer from "expo-mail-composer";
 
-import { cardContext } from "../../../services/card_context";
+import { cardContext } from "../../../global/card_context";
 import styles from "./styles";
 
 export default function DetailCardSubmmit() {

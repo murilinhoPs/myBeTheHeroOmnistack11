@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { FlatList, StyleSheet } from "react-native";
 
-import { apiContext } from "../../../../services/api_context";
+import { apiContext } from "../../../../global/api_context";
 import CasesCards from "../cases_cards/";
 
 export default function CasesLists() {
