@@ -1,25 +1,28 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { FlatList, StyleSheet } from "react-native";
 
+import { apiContext } from "../../../../services/api_context";
 import CasesCards from "../cases_cards/";
 
 export default function CasesLists() {
+  const { cases, loadCases } = useContext(apiContext);
+
   return (
     <FlatList
-      showsVerticalScrollIndicator={false}
+      showsVerticalScrollIndicator={true}
       style={styles.casesLists}
-      data={[1, 2, 3, 4]}
-      keyExtractor={(dataid) => String(dataid)}
-      renderItem={() => {
-        return <CasesCards />;
-      }}
+      data={cases}
+      keyExtractor={(data) => String(data.id)}
+      onEndReached={loadCases}
+      onEndReachedThreshold={0.3}
+      renderItem={({ item: data }) => <CasesCards caso={data} />}
     />
   );
 }
 
 const styles = StyleSheet.create({
   casesLists: {
-    marginTop: 22,
+    marginTop: 7.0,
     paddingTop: 5,
   },
 });

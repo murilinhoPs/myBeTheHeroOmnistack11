@@ -29,12 +29,14 @@ export default StyleSheet.create({
   },
   cardButtons: {
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
   },
   cardButton: {
     backgroundColor: "#E04052",
     borderRadius: 10,
     padding: 15,
+    width: "46%",
+    alignItems: "center",
   },
   cardButtonText: {
     fontSize: 18,

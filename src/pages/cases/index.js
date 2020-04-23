@@ -6,6 +6,8 @@ import CasesList from "./components/cases_lists";
 import Header from "../../components/header";
 
 export default function Cases() {
+  // TODO:
+  //UseContext api for show the total cases(state) and for fetch the api(effect)
   return (
     <View style={styles.container}>
       <Header textOrIcon={true} />

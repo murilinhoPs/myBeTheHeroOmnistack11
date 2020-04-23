@@ -13,8 +13,7 @@ export default StyleSheet.create({
     fontWeight: "700",
     color: "#131300",
     opacity: 0.8,
-    marginTop: 40,
-    marginBottom: 16,
+    marginTop: 15,
   },
   titleDescription: {
     color: "#737380",

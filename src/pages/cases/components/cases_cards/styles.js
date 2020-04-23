@@ -42,11 +42,12 @@ export default StyleSheet.create({
     marginLeft: -15,
   },
   detailsButton: {
-    marginTop: 20,
+    marginTop: 10,
     flexDirection: "row",
     justifyContent: "space-between",
     width: "105%",
     marginLeft: -8,
+    height: 30,
   },
   detailsButtonText: {
     color: "#E04052",
