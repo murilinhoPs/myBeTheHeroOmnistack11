@@ -4,7 +4,7 @@ import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 import logo from "../../assets/logo.png";
-import { apiContext } from "../../services/api_context";
+import { apiContext } from "../../global/api_context";
 
 export default function Header({ textOrIcon }) {
   const navigation = useNavigation();

@@ -10,6 +10,7 @@ export const ApiProvider = (props) => {
 
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [firstLoading, setFirstLoading] = useState(false);
 
   async function loadCases() {
     if (loading) return;
@@ -24,14 +25,16 @@ export const ApiProvider = (props) => {
     setTotalCases(response.headers["x-total-count"]);
     setPage(page + 1);
     setLoading(false);
+    setFirstLoading(false);
   }
 
   useEffect(() => {
+    setFirstLoading(true);
     loadCases();
   }, []);
 
   return (
-    <apiContext.Provider value={{ cases, totalCases, loadCases }}>
+    <apiContext.Provider value={{ cases, totalCases, loadCases, firstLoading }}>
       {props.children}
     </apiContext.Provider>
   );

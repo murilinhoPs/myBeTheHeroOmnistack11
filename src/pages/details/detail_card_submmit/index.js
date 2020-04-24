@@ -2,39 +2,37 @@ import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Linking } from "react-native";
 import * as MailComposer from "expo-mail-composer";
 
-import { cardContext } from "../../../global/card_context";
 import styles from "./styles";
+import { cardContext } from "../../../global/card_context";
+import SubmmitBottomSheet from "../submmit_bottom_sheet";
 
 export default function DetailCardSubmmit() {
   const { caso } = React.useContext(cardContext);
-  const [dialog, setDialog] = useState(false);
-  const message = `Olá ${caso.name}! Mensagem para ser enviada pelo bottom sheet-InputField`;
+  const [isWpp, setIsWpp] = useState(false);
 
-  function sendEmail() {
-    MailComposer.composeAsync({
-      subject: `Ajude o caso: ${caso.title}`,
-      recipients: [caso.email],
-      body: message,
-    });
-  }
-
-  function sendWpp() {
-    Linking.openURL(`whatsapp://send?phone=${caso.whatsapp}&text=${message}`);
-  }
+  const myActionSheet = React.useRef();
+  const showActionSheet = () => myActionSheet.current.show();
 
   const DetailsActions = () => (
     <View style={styles.cardButtons}>
       <TouchableOpacity
         style={styles.cardButton}
         onPress={() => {
-          setDialog(!dialog);
-          sendWpp();
+          setIsWpp(true);
+          showActionSheet();
         }}
       >
         <Text style={styles.cardButtonText}>WhatsApp</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.cardButton} onPress={sendEmail}>
+      <TouchableOpacity
+        style={styles.cardButton}
+        onPress={() => {
+          setIsWpp(false);
+
+          showActionSheet();
+        }}
+      >
         <Text style={styles.cardButtonText}>E-mail</Text>
       </TouchableOpacity>
     </View>
@@ -50,7 +48,8 @@ export default function DetailCardSubmmit() {
         </View>
         <DetailsActions />
       </View>
-      {dialog ? <Text>DIALOG</Text> : null}
+      <View></View>
+      <SubmmitBottomSheet myRef={myActionSheet} caso={caso} isWpp={isWpp} />
     </View>
   );
 }
