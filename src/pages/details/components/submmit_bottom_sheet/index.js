@@ -14,13 +14,13 @@ import * as MailComposer from "expo-mail-composer";
 
 import styles from "./styles";
 
+//TODO: Separate logic from view https://dev.to/tomekbuszewski/high-level-view-and-logic-separation-in-react-39n0
+
 const validationSchema = yup.object().shape({
   mensagem: yup.string().required(),
 });
 
 export default function SubmmitBottomSheet({ myRef, caso, isWpp }) {
-  // const [inputValue, setInputValue] = React.useState();
-
   let message = "";
 
   function sendEmail() {

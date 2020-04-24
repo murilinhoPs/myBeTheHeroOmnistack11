@@ -5,6 +5,8 @@ import styles from "./styles";
 import { cardContext } from "../../../../global/card_context";
 import SubmmitBottomSheet from "../submmit_bottom_sheet";
 
+//TODO: Separate logic from view https://dev.to/tomekbuszewski/high-level-view-and-logic-separation-in-react-39n0
+
 export default function DetailCardSubmmit() {
   const { caso } = React.useContext(cardContext);
   const [isWpp, setIsWpp] = useState(false);
