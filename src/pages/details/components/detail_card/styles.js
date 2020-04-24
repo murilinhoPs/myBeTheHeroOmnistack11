@@ -2,21 +2,19 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   case: {
-    padding: 22,
+    padding: 25,
     borderRadius: 15,
     backgroundColor: "#FFF",
-    shadowRadius: 6,
-    shadowColor: "#000",
-    shadowOffset: { height: 3 },
-    shadowOpacity: 0.2,
-    elevation: 7,
     marginBottom: 20,
+    borderColor:'grey',
+    borderWidth:2.5,
+    paddingHorizontal:35
   },
   caseHeader: {
     alignItems: "center",
     justifyContent: "space-between",
     flexDirection: "row",
-    paddingRight: 5,
+    paddingRight:5
   },
   caseProperty: {
     fontWeight: "bold",

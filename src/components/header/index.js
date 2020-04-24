@@ -31,7 +31,7 @@ export default function Header({ textOrIcon }) {
         </Text>
       ) : (
         <TouchableOpacity onPress={goToBack}>
-          <Feather name="arrow-left" size={27} color="#E04041" />
+          <Feather name="arrow-left" size={27} color="#ef5350" />
         </TouchableOpacity>
       )}
     </View>

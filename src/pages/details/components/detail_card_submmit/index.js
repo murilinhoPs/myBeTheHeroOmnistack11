@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, Linking } from "react-native";
-import * as MailComposer from "expo-mail-composer";
+import { View, Text, TouchableOpacity } from "react-native";
 
 import styles from "./styles";
-import { cardContext } from "../../../global/card_context";
+import { cardContext } from "../../../../global/card_context";
 import SubmmitBottomSheet from "../submmit_bottom_sheet";
 
 export default function DetailCardSubmmit() {
@@ -11,7 +10,7 @@ export default function DetailCardSubmmit() {
   const [isWpp, setIsWpp] = useState(false);
 
   const myActionSheet = React.useRef();
-  const showActionSheet = () => myActionSheet.current.show();
+  const showActionSheet = () => myActionSheet.current.open();
 
   const DetailsActions = () => (
     <View style={styles.cardButtons}>

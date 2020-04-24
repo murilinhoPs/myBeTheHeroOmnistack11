@@ -41,16 +41,24 @@ export default function CasesCards(props) {
       onPress={() => goToDetails(props.caso)}
     >
       <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
-      <Feather name="arrow-right" size={20} color="#E04041" />
+      <View
+        style={{
+          borderColor: "#ef5350",
+          borderWidth: 2,
+          borderRadius: 5,
+          padding:3,
+          justifyContent:'center'
+        }}
+      >
+        <Feather name="plus" size={20} color="#ef5350" />
+      </View>
     </TouchableOpacity>
   );
 
   return (
     <View style={styles.case}>
       <CardContent />
-
       <Divider style={styles.divider} />
-
       <CardActions />
     </View>
   );

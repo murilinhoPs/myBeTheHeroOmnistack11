@@ -4,13 +4,11 @@ export default StyleSheet.create({
   case: {
     padding: 26,
     borderRadius: 15,
-    backgroundColor: "#FFF",
-    shadowRadius: 6,
-    shadowColor: "#000",
-    shadowOffset: { height: 3 },
-    shadowOpacity: 0.2,
-    elevation: 7,
+    backgroundColor: "#fff",
     marginBottom: 20,
+    borderColor:'grey',
+    borderWidth:2.5,
+    borderStyle:'solid'
   },
   caseHeader: {
     alignItems: "center",
@@ -35,7 +33,7 @@ export default StyleSheet.create({
   divider: {
     paddingHorizontal: 0,
     backgroundColor: "#737380",
-    height: 1.3,
+    height: 1.8,
     opacity: 0.6,
     marginTop: 30,
     width: "110%",
@@ -50,7 +48,7 @@ export default StyleSheet.create({
     height: 30,
   },
   detailsButtonText: {
-    color: "#E04052",
+    color: "#ef5350",
     fontSize: 16,
     fontWeight: "600",
   },

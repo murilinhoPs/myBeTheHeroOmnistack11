@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 
 import styles from "./styles";
-import { cardContext } from "../../../global/card_context";
+import { cardContext } from "../../../../global/card_context";
 
 export default function DetailCard() {
   const { caso } = React.useContext(cardContext);

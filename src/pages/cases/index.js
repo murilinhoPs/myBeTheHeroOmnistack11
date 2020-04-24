@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
 
 import styles from "./styles";
-import CasesList from "./components/cases_lists";
+import CasesList from "./components/cases_list";
 import Header from "../../components/header";
 import { apiContext } from "../../global/api_context";
 import { Easing } from "react-native-reanimated";
