@@ -6,9 +6,9 @@ export default StyleSheet.create({
     borderRadius: 15,
     backgroundColor: "#fff",
     marginBottom: 20,
-    borderColor:'grey',
-    borderWidth:2.5,
-    borderStyle:'solid'
+    borderColor: "grey",
+    borderWidth: 2.5,
+    borderStyle: "solid",
   },
   caseHeader: {
     alignItems: "center",
@@ -51,5 +51,12 @@ export default StyleSheet.create({
     color: "#ef5350",
     fontSize: 16,
     fontWeight: "600",
+  },
+  detailsButtonIconContainer: {
+    borderColor: "#ef5350",
+    borderWidth: 2,
+    borderRadius: 5,
+    padding: 3,
+    justifyContent: "center",
   },
 });

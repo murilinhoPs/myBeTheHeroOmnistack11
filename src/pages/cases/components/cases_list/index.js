@@ -8,7 +8,6 @@ export default function CasesLists() {
   const { cases, loadCases } = useContext(apiContext);
 
   return (
-    
     <FlatList
       showsVerticalScrollIndicator={false}
       style={styles.casesLists}

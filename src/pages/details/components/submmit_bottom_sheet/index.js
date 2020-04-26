@@ -1,18 +1,12 @@
 import React from "react";
-import {
-  TextInput,
-  Text,
-  TouchableOpacity,
-  Linking,
-  ScrollView,
-  View,
-} from "react-native";
+import { Linking, ScrollView } from "react-native";
 import * as yup from "yup";
 import { Formik } from "formik";
 import RBSheet from "react-native-raw-bottom-sheet";
 import * as MailComposer from "expo-mail-composer";
 
 import styles from "./styles";
+import BottomSheetView from "./view";
 
 //TODO: Separate logic from view https://dev.to/tomekbuszewski/high-level-view-and-logic-separation-in-react-39n0
 
@@ -35,62 +29,32 @@ export default function SubmmitBottomSheet({ myRef, caso, isWpp }) {
     Linking.openURL(`whatsapp://send?phone=${caso.whatsapp}&text=${message}`);
   }
 
+  function formSubmit(values) {
+    message = values.mensagem;
+    console.log(message);
+
+    if (isWpp) {
+      sendWpp();
+    } else {
+      sendEmail();
+    }
+  }
+
+  const mailOrWpp = () => (isWpp ? "WhatsApp" : "E-mail");
+
   const SheetContent = () => (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-      style={{ textAlign: "center" }}
-    >
-      <Text style={{ color: "#ef5350", fontSize: 20, paddingTop: 10 }}>
-        Digite sua mensagem para {caso.name}
-      </Text>
+    <ScrollView showsVerticalScrollIndicator={false}>
       <Formik
         initialValues={{ mensagem: "" }}
         validationSchema={validationSchema}
-        onSubmit={(values) => {
-          message = values.mensagem;
-          console.log(message);
-
-          if (isWpp) {
-            sendWpp();
-            console.log("Mandou WhatsApp");
-          } else {
-            sendEmail();
-            console.log("Mandou E-mail");
-          }
-
-          // alert(JSON.stringify(values.mensagem));
-        }}
+        onSubmit={(values) => formSubmit(values)}
       >
         {(formikProps) => (
-          <View>
-            <TextInput
-              style={styles.input_field}
-              onChangeText={formikProps.handleChange("mensagem")}
-              placeholder="Olá, sou o Bob e quero te ajudar!"
-              autoFocus={false}
-              multiline={true}
-            />
-
-            <Text
-              style={{
-                color: "red",
-                fontSize: 12,
-                paddingBottom: 20,
-                marginTop: -3,
-              }}
-            >
-              {formikProps.errors.mensagem}
-            </Text>
-
-            <TouchableOpacity
-              style={styles.button_sheet}
-              onPress={() => formikProps.handleSubmit()}
-            >
-              <Text style={{ color: "#ef5350", fontSize: 18 }}>
-                Enviar {isWpp ? "WhatsApp" : "E-mail"}
-              </Text>
-            </TouchableOpacity>
-          </View>
+          <BottomSheetView
+            formikProps={formikProps}
+            mailOrWpp={mailOrWpp()}
+            caso={caso}
+          />
         )}
       </Formik>
     </ScrollView>
@@ -102,21 +66,9 @@ export default function SubmmitBottomSheet({ myRef, caso, isWpp }) {
       closeOnDragDown={true}
       closeOnPressMask={true}
       customStyles={{
-        wrapper: {
-          backgroundColor: "rgba(0, 0, 0, 0.4)",
-          backfaceVisibility: "visible",
-        },
-        draggableIcon: {
-          backgroundColor: "grey",
-        },
-        container: {
-          alignItems: "center",
-          borderTopLeftRadius: 20,
-          borderTopRightRadius: 20,
-          elevation: 10,
-          maxHeight: "35%",
-          backgroundColor:"white"
-        },
+        wrapper: styles.wrapper,
+        draggableIcon: styles.draggableIcon,
+        container: styles.container,
       }}
     >
       <SheetContent />
